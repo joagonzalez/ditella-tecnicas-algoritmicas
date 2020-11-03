@@ -15,6 +15,10 @@ def factoriales(n):
     return rv
 
 def factoriales_lineal(n):
+    '''
+    Se van agregando los factoriales calculados multiplicando el factorial anterior
+    Esto hace que sea un algoritmo lineal O(N)
+    '''
     rv = []
 
     for i in range(n+1):
