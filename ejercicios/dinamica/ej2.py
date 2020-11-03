@@ -45,14 +45,20 @@ def cant_sumas_distintas_lineal(n, buffer):
     return rv
 
 if __name__ == '__main__':
-    ITERS = 38
+    ITERS = [30, 35, 40]
     buffer = {}
 
-    start_time = time.time()
-    print('exponencial: ' + str(cant_sumas_distintas_exp(ITERS)))
-    print("--- %s seconds ---" % (time.time() - start_time))
+    for i in ITERS:
+        print("Comparamos para N = " + str(i))
+        start_time = time.time()
+        print('exponencial: ' + str(cant_sumas_distintas_exp(i)))
+        print("--- %s seconds ---" % (time.time() - start_time))
 
-    '''
+        start_time = time.time()
+        print('lineal: ' + str(cant_sumas_distintas_lineal(i, buffer)))
+        print("--- %s seconds ---" % (time.time() - start_time))
+
+    ''' A)
     Este algoritmo funciona ya que descompone al numero en casos base.
     Los casos base, a su vez, estan bien definidos y se define de cuantas maneras puede escribirse cada uno como sumas de 1, 3 y 4
     Entonces, el numero solicitado se podrá escribir de tantas formas como la suma de todos los casos base en que se pudo descomponer.
@@ -85,6 +91,8 @@ if __name__ == '__main__':
     No se aprovechan los resultados ya calculados y vuelven a desarrollarse, lo que hace que crezca de manera exponencial
     '''
 
-    start_time = time.time()
-    print('lineal: ' + str(cant_sumas_distintas_lineal(ITERS, buffer)))
-    print("--- %s seconds ---" % (time.time() - start_time))
+    ''' C)
+    Estas diferencias se deben a que mientras mayor es el valor de N, mas veces se reciclarán valores
+    del buffer definido y, a su vez, mayor será la profundidad del árbol para calcular el valor deseado.
+    Entonces, la diferencia de tiempo entre las funciones exponencial y lineal irá creciendo junto con el valor de N
+    '''
