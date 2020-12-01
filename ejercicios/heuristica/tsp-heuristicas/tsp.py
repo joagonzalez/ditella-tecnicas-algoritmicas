@@ -204,7 +204,7 @@ if __name__=="__main__":
 
   mapa2 = mapa_aleatorio(list('abcdefghi'))
 
-  mapa3 = mapa_aleatorio(list('abcdefghijkl'))
+  mapa3 = mapa_aleatorio(list('abcdefghijk'))
 
   for m in (mapa1, mapa2, mapa3):
     for alg in ['exhaustivo', 'aleatorio', 'greedy', 'búsqueda local', 'búsqueda local iterativa']:
